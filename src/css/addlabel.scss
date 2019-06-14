@@ -1,0 +1,112 @@
+.container{
+  padding: 4px;
+  margin: 0px;
+}
+.defaultLabel{
+  color: #ccc;
+  text-decoration:none;
+  font-size: 16px;
+}
+.defaultLabel:hover{
+  color: #1E90FF;
+}
+.wrap{
+  width: 200px;
+  box-shadow: 1px 1px #eee;
+}
+.keyword{
+  border:thin solid rgb(200,200,200);
+}
+ul.expandUl{
+  list-style: none;
+  font-size: 17px;
+  padding-left: 5px;
+  transition: all 1000 ease;
+  //overflow-y: scroll;
+  //overflow-x: hidden;
+  li:hover{
+    background-color: #eee;
+    cursor: pointer;
+  }
+  button{
+    color: #aaa;
+  }
+  button:hover{
+    color: #1890ff;
+  }
+}
+.btnAni-enter {
+  opacity: 0;
+}
+.btnAni-enter-active {
+  opacity: 1;
+  //transform: translateX(200px);
+  transition: all 1000ms ease;
+}
+.btnAni-exit {
+  opacity: 1;
+}
+.btnAni-exit-active {
+  opacity: 0;
+  transition: all 1000ms ease;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  span{
+    vertical-align:middle;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 17px;
+  }
+}
+.createPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-between;
+  padding: 5px;
+  .checkBox{
+    position: relative;
+    margin: 15px 0;
+    label{
+      font-weight: bold;
+    }
+    .Checkbox+label {
+      position:absolute;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #A6A6A6;
+      border-radius: 50%;
+    } 
+    .Checkbox{
+      //position: absolute;
+      visibility: hidden;
+    }
+    .Checkbox:checked+label:after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 4px;
+      width: 12px;
+      height: 6px;
+      border: 2px solid #fff;
+      border-top-color: transparent;
+      border-right-color: transparent; 
+      transform: rotate(-45deg);
+      -ms-transform: rotate(-60deg);
+      -moz-transform: rotate(-60deg);
+      -webkit-transform: rotate(-60deg);
+    }
+  }
+  input{
+    margin:0px;
+    padding: 0px;
+  }
+  button{
+    width: 80px;
+  }
+}
+
+
