@@ -33,6 +33,14 @@ export default class Search extends React.Component{
     this.props.changePage(2)
   }
 
+  strHandel(str) {
+    if(str.length > 2) {
+      return (str.slice(0,2) + "···")
+    }else {
+      return str
+    }
+  }
+
   render() {
     return (
       <div className="wrap" style={{marginLeft:this.props.leftDistance}}>
@@ -47,8 +55,8 @@ export default class Search extends React.Component{
           { this.state.list.map((items,index) => 
               <li key={index} onClick={this.liClick.bind(this,index)}>
                 <div style={{display:"inline-block",width:"10px",height:"10px",borderRadius:"50%",backgroundColor:items.color}}></div>
-                <span style={{paddingLeft:"5px"}}>{items.name}</span>
-                <Button type="link"  icon="edit" style={{marginLeft:"110px"}} onClick={this.editBtn.bind(this,index)}/>
+                <span style={{paddingLeft:"5px"}}>{this.strHandel(items.name)}</span>
+                <Button type="link"  icon="edit" style={{marginLeft:"75px"}} onClick={this.editBtn.bind(this,index)}/>
               </li>
             )}
         </ul>

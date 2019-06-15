@@ -17,14 +17,18 @@ export default class Create extends React.Component{
   };
 
   create() {
-    let tmp = {
-      name: document.getElementById("inputValue").value,
-      colorId: this.state.value,
-      color: this.state.colorList[this.state.value-1],
-      close: false
+    if(document.getElementById("inputValue").value !== "") {
+      let tmp = {
+        name: document.getElementById("inputValue").value,
+        colorId: this.state.value,
+        color: this.state.colorList[this.state.value-1],
+        close: false
+      }
+      this.props.addLabel(tmp)
+      this.props.changePage(0)
+    }else{
+      alert("标签名称不能为空")
     }
-    this.props.addLabel(tmp)
-    this.props.changePage(0)
   }
 
   render() {
@@ -33,7 +37,7 @@ export default class Create extends React.Component{
         <Input
           id="inputValue"
           autoFocus="autofocus"
-          placeholder="搜索标签"
+          placeholder="创建标签"
           suffix={
             <Icon type="plus-circle" style={{ color: '#1E90FF' }} />
           }

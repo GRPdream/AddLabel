@@ -35,13 +35,17 @@ export default class Edit extends React.Component{
   }
 
   editBtn() {
-    let value = document.getElementById('inputValue').value
-    let tmp = JSON.parse(JSON.stringify(this.props.item))
-    tmp.name = value
-    tmp.colorId = this.state.value
-    tmp.color = this.state.colorList[tmp.colorId-1]
-    this.props.edit(this.props.index,tmp)
-    this.props.changePage(0)
+    if(document.getElementById('inputValue').value !== "") {
+      let value = document.getElementById('inputValue').value
+      let tmp = JSON.parse(JSON.stringify(this.props.item))
+      tmp.name = value
+      tmp.colorId = this.state.value
+      tmp.color = this.state.colorList[tmp.colorId-1]
+      this.props.edit(this.props.index,tmp)
+      this.props.changePage(0)
+    }else{
+      alert("标签名不能为空")
+    }
   }
 
   render(){
@@ -54,7 +58,7 @@ export default class Edit extends React.Component{
         </p>
         <hr style={{margin:"2px 0"}}/>
         <div className="createPage">
-          <Input value={this.props.item.name} id="inputValue"/>
+          <Input defaultValue={this.props.item.name} autoFocus="autofocus" id="inputValue"/>
           <span className="checkBox" onChange={this.onChange} value={this.props.value}>
             <input type="radio"className="Checkbox" name="radio" id="check1" value={1}/>
             <label htmlFor="check1" style={{backgroundColor:"#1890ff",left:"0px"}}></label>
